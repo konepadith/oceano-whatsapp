@@ -33,7 +33,7 @@ client.on('ready', () => {
 cron.schedule("0 0 9 * * *", function () {
     console.log("---------------------");
     console.log("running a task every 09:00");
-    const text = "ສະບາຍດີ ນີ້ແມ່ນຂໍ້ຄວາມອັດຕະໂນມັດ/n ມີເອກະສານໄປເຊັນຢູ່ຫ້ອງການໃໝ່ບໍ?";
+    const text = "ສະບາຍດີ\nມີເອກະສານໄປເຊັນຢູ່ຫ້ອງການໃໝ່ບໍ?";
  // Getting chatId from the number.
  // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
 // const chatId = number.substring(1) + "@c.us";
@@ -46,7 +46,7 @@ client.sendMessage(chatId, text);
   cron.schedule("0 0 14 * * *", function () {
     console.log("---------------------");
     console.log("running a task every 14:00");
-    const text = "ສະບາຍດີ ນີ້ແມ່ນຂໍ້ຄວາມອັດຕະໂນມັດ/n ມີເອກະສານໄປເຊັນຢູ່ຫ້ອງການໃໝ່ບໍ?";
+    const text = "ສະບາຍດີ\nມີເອກະສານໄປເຊັນຢູ່ຫ້ອງການໃໝ່ບໍ?";
 
  // Getting chatId from the number.
  // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
@@ -63,9 +63,14 @@ client.sendMessage(chatId, text);
 client.on('message', async message => {
 
     // console.log(`Message received from ${message.from}: ${message.body}`);
-	if(message.body.includes("ສະບາຍດີ") ) {
+	// if(message.body.includes("ຂໍເພງ") ) {
 		
-            message.reply('ສະບາຍດີ ຂ້ອຍຊື່ຊານເດິ');
+    //         message.reply('ສະບາຍດີ ຂ້ອຍຊື່ຊານເດິ');
+
+	// }
+    if(message.body === "ບໍ່ມີ" || message.body === "ບໍ່" ) {
+		
+            message.reply('ໂອເຄ');
 
 	}
     // console.log(message)
