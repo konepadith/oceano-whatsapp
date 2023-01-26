@@ -68,11 +68,11 @@ client.on('message', async message => {
     //         message.reply('ສະບາຍດີ ຂ້ອຍຊື່ຊານເດິ');
 
 	// }
-    if(message.body === "ບໍ່ມີ" || message.body === "ບໍ່" ) {
+    // if(message.body === "ບໍ່ມີ" || message.body === "ບໍ່" ) {
 		
-            message.reply('ໂອເຄ');
+    //         message.reply('ໂອເຄ');
 
-	}
+	// }
     // console.log(message)
 //     const groupName = 'ກຸ່ມເອົາເອກະສານໄປເຊັນ'
 // const chats = await client.getChats()
