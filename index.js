@@ -1,21 +1,13 @@
 const qrcode = require('qrcode-terminal');
-
 const { Client, LocalAuth,MessageMedia } = require('whatsapp-web.js');
-
 const client = new Client({
     authStrategy: new LocalAuth()
 });
 const data = require('./person.json')
-    
-  
-  
-
 const cron = require("node-cron");
-
 client.on('qr', (qr) => {
     qrcode.generate(qr, {small: true});
 });
-
 client.on('ready', () => {
     console.log('Client is ready!');
     // desplegad()
