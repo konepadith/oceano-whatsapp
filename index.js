@@ -8,6 +8,18 @@ const cron = require("node-cron");
 client.on('qr', (qr) => {
     qrcode.generate(qr, {small: true});
 });
+var d = new Date();
+var m = d.getMonth();
+d.setMonth(d.getMonth() - 1);
+
+// If still in same month, set date to last day of 
+// previous month
+if (d.getMonth() == m) d.setDate(0);
+d.setHours(0, 0, 0, 0);
+
+// Get the time value in milliseconds and convert to seconds
+console.log(d/1000 | 0);
+// https://products.aspose.app/cells/conversion/excel-to-json
 client.on('ready', () => {
     console.log('Client is ready!');
     // desplegad()
@@ -29,13 +41,15 @@ client.on('ready', () => {
 // client.sendMessage(chatId, text);
   for (let i = 0; i < Object.keys(data).length; i++) {
     const element = data[i];
-    // console.log(element.file)
-    console.log(element.tel.substring(1)+"@c.us")
+    // console.log(element.FullNames+".pdf")
+    // console.log(element.CodesTel.substring(1)+"@c.us")
+    var phoneNumber=element.CodesTel.substring(1)+"@c.us"
+    
     // client.sendMessage(phoneNumber,TextMessage)
     // client.sendMessage("85620"+element.tel+"@c.us",element.name+"\n"+element.salary.toLocaleString("en-US")+"\nສະບາຍດີ");
-    client.sendMessage(element.tel.substring(1)+"@c.us",element.name+"\n"+element.salary.toLocaleString("en-US")+"\nສະບາຍດີ");
-    // const attachmentPdf = MessageMedia.fromFilePath("salary/"+element.file);
-    // client.sendMessage("85620"+element.tel+"@c.us", attachmentPdf); 
+    // client.sendMessage(phoneNumber,"ສະບາຍດີ " + element.FullNames + "ນີ້ແມ່ນເອກະສານໃບແຈ້ງຢອດລວມເງິນເດືອນປະຈຳ"+ d.setMonth(d.getMonth() - 1) + "\nຖ້າມີຂໍ້ມູນໃດບໍ່ຖືກຕ້ອງ ກະລຸນາແຈ້ງຂໍ້ມູນປະໄວ້ ທາງຝ່າຍເຮົາຈະໃຫ້ຄຳຕອບໃນໄວໆນີ້");
+    // const attachmentPdf = MessageMedia.fromFilePath("salary/"+element.FullNames+".pdf");
+    // client.sendMessage(phoneNumber, attachmentPdf); 
   }
 // client.sendMessage("8562022881341@c.us", "Hello");
 
@@ -75,7 +89,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
-    console.log(`Message received from ${message.from}: ${message.body}`);
+    // console.log(`Message received from ${message.from}: ${message.body}`);
 	// if(message.body.includes("ຂໍເພງ") ) {
 		
     //         message.reply('ສະບາຍດີ ຂ້ອຍຊື່ຊານເດິ');
