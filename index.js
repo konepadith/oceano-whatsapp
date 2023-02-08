@@ -29,10 +29,13 @@ client.on('ready', () => {
 // client.sendMessage(chatId, text);
   for (let i = 0; i < Object.keys(data).length; i++) {
     const element = data[i];
-    console.log(element.file)
+    // console.log(element.file)
+    console.log(element.tel.substring(1)+"@c.us")
+    // client.sendMessage(phoneNumber,TextMessage)
     // client.sendMessage("85620"+element.tel+"@c.us",element.name+"\n"+element.salary.toLocaleString("en-US")+"\nສະບາຍດີ");
+    client.sendMessage(element.tel.substring(1)+"@c.us",element.name+"\n"+element.salary.toLocaleString("en-US")+"\nສະບາຍດີ");
     // const attachmentPdf = MessageMedia.fromFilePath("salary/"+element.file);
-        // client.sendMessage("85620"+element.tel+"@c.us", attachmentPdf); 
+    // client.sendMessage("85620"+element.tel+"@c.us", attachmentPdf); 
   }
 // client.sendMessage("8562022881341@c.us", "Hello");
 
@@ -72,7 +75,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
-    // console.log(`Message received from ${message.from}: ${message.body}`);
+    console.log(`Message received from ${message.from}: ${message.body}`);
 	// if(message.body.includes("ຂໍເພງ") ) {
 		
     //         message.reply('ສະບາຍດີ ຂ້ອຍຊື່ຊານເດິ');
